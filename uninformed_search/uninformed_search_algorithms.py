@@ -180,52 +180,6 @@ def solve_identical_disks(length, n):
 
     return []
 
-# def solve_identical_disks(length, n):
-#     # Initial and goal states
-#     initial_state = tuple(1 if i < n else 0 for i in range(length))
-#     goal_state = tuple(0 if i < length - n else 1 for i in range(length))
-
-#     # BFS setup
-#     queue = deque([(initial_state, [])])
-#     visited = set()
-#     visited.add(initial_state)
-
-#     while queue:
-#         current_state, path = queue.popleft()
-
-#         # If the current state is the goal state, return the path
-#         if current_state == goal_state:
-#             return path
-
-#         # Generate all possible moves from the current state
-#         for i in range(length):
-#             if current_state[i] == 1:
-#                 # Move to adjacent cell
-#                 if i + 1 < length and current_state[i + 1] == 0:
-#                     new_state = list(current_state)
-#                     temp = new_state[i + 1]
-#                     new_state[i + 1] = new_state[i]
-#                     new_state[i] = temp
-#                     new_state = tuple(new_state)
-#                     if new_state not in visited:
-#                         visited.add(new_state)
-#                         queue.append((new_state, path + [(i, i + 1)]))
-
-#                 # Jump over one disk to the empty cell
-#                 if (i + 2 < length
-#                         and current_state[i + 1] == 1
-#                         and current_state[i + 2] == 0):
-#                     new_state = list(current_state)
-#                     temp = new_state[i + 2]
-#                     new_state[i + 2] = new_state[i]
-#                     new_state[i] = temp
-#                     new_state = tuple(new_state)
-#                     if new_state not in visited:
-#                         visited.add(new_state)
-#                         queue.append((new_state, path + [(i, i + 2)]))
-
-#     return []
-
 
 def solve_distinct_disks(length, n):
     initial_state = tuple(i + 1 if i < n else 0 for i in range(length))
@@ -285,81 +239,6 @@ def solve_distinct_disks(length, n):
                             return path + [(i, i - 2)]
                         queue.append((new_state, path + [(i, i - 2)]))
     return []
-
-# def solve_distinct_disks(length, n):
-
-#     initial_state = tuple(i + 1 if i < n else 0 for i in range(length))
-#     goal_state = tuple(
-#         0 if i < length - n
-#         else length - i
-#         for i
-#         in range(length))
-
-#     # BFS setup
-#     queue = deque([(initial_state, [])])
-#     visited = set()
-#     visited.add(initial_state)
-
-#     while queue:
-#         current_state, path = queue.popleft()
-
-#         # If the current state is the goal state, return the path
-#         if current_state == goal_state:
-#             return path
-
-#         # Generate all possible moves from the current state
-#         for i in range(length):
-#             if current_state[i] != 0:
-#                 # Move to adjacent cell
-#                 if i + 1 < length and current_state[i + 1] == 0:
-#                     new_state = list(current_state)
-#                     temp = new_state[i + 1]
-#                     new_state[i + 1] = new_state[i]
-#                     new_state[i] = temp
-#                     new_state = tuple(new_state)
-#                     if new_state not in visited:
-#                         visited.add(new_state)
-#                         queue.append((new_state, path + [(i, i + 1)]))
-
-#                 if i - 1 >= 0 and current_state[i - 1] == 0:
-#                     new_state = list(current_state)
-#                     temp = new_state[i - 1]
-#                     new_state[i - 1] = new_state[i]
-#                     new_state[i] = temp
-#                     new_state = tuple(new_state)
-#                     if new_state not in visited:
-#                         visited.add(new_state)
-#                         queue.append((new_state, path + [(i, i - 1)]))
-
-#                 # Jump over one disk to the empty cell
-#                 if (i + 2 < length
-#                         and current_state[i + 1] != 0
-#                         and current_state[i + 2] == 0):
-#                     new_state = list(current_state)
-#                     temp = new_state[i + 2]
-#                     new_state[i + 2] = new_state[i]
-#                     new_state[i] = temp
-#                     new_state = tuple(new_state)
-#                     new_state = tuple(new_state)
-#                     if new_state not in visited:
-#                         visited.add(new_state)
-#                         queue.append((new_state, path + [(i, i + 2)]))
-
-#                 if (i - 2 >= 0
-#                         and current_state[i - 1] != 0
-#                         and current_state[i - 2] == 0):
-#                     new_state = list(current_state)
-#                     temp = new_state[i - 2]
-#                     new_state[i - 2] = new_state[i]
-#                     new_state[i] = temp
-#                     new_state = tuple(new_state)
-#                     if new_state not in visited:
-#                         visited.add(new_state)
-#                         queue.append((new_state, path + [(i, i - 2)]))
-
-#     return []
-
-# print(solve_distinct_disks(4, 3))
 
 ############################################################
 # Section 4: Feedback
