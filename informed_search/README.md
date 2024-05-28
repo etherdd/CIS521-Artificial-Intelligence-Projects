@@ -12,4 +12,5 @@ This game is a navigation on a two-dimensional grid with obstacles. The goal is 
 
 `python InformedSearch_grid_navigation_gui.py scene_path` 
 
-The argument `scene_path` is a path to a scene file storing the layout of the target grid and obstacles. Here provides 3 scene files `scene_path/scene_simple.txt` `scene_path/scene_barrier.txt` `scene_path/scene_randon.txt`. The solver is implemented with A* asearch using the Euclidean distanc heuristic.
+Replace `scene_path` with the path to a scene file (e.g., `scene_path/scene_simple.txt`, 
+`scene_path/scene_barrier.txt`, `scene_path/scene_randon.txt`). The solver is implemented with A* search using the Euclidean distanc heuristic.
