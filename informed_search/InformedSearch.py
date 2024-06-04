@@ -3,17 +3,6 @@ from queue import PriorityQueue
 from itertools import count
 import math
 
-############################################################
-# CIS 521: Homework 3
-############################################################
-
-student_name = "Yun Dai"
-
-############################################################
-# Imports
-############################################################
-
-# Include your imports here, if any are used.
 
 ############################################################
 # Section 1: Tile Puzzle

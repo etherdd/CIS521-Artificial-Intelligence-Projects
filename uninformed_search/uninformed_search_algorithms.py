@@ -3,18 +3,6 @@ import random
 from collections import deque
 
 ############################################################
-# CIS 521: Homework 2
-############################################################
-
-student_name = "Yun Dai"
-
-############################################################
-# Imports
-############################################################
-
-# Include your imports here, if any are used.
-
-############################################################
 # Section 1: N-Queens
 ############################################################
 
@@ -240,21 +228,3 @@ def solve_distinct_disks(length, n):
                         queue.append((new_state, path + [(i, i - 2)]))
     return []
 
-############################################################
-# Section 4: Feedback
-############################################################
-
-
-feedback_question_1 = """
-6 hrs
-"""
-
-feedback_question_2 = """
-In BFS and DFS, when should I check the result and
-when should I add the stated to visited.
-In solve_distinct_disks, it is easy to forget that a disk can move backwords
-"""
-
-feedback_question_3 = """
-the GUI interface, it makes the assignment way too fun
-"""
