@@ -1,15 +1,9 @@
 
 import collections
 import copy
-<<<<<<< HEAD
-import itertools
-import random
-import math
-=======
-
->>>>>>> refs/remotes/origin/main
 
 
+# update the comments
 def sudoku_cells():
     return [(r, c) for r in range(9) for c in range(9)]
 
@@ -43,7 +37,6 @@ def sudoku_arcs():
 
     return list(arcs)
 
-# 1111111
 def read_board(path):
     board = {}
     with open(path, 'r') as f:
@@ -145,8 +138,9 @@ Understanding AC-3 and backreackng is difficult.
             if found_new_value:
                 self.infer_ac3()
             else:
+ 
                 break
-# 1111111
+
     def infer_with_guessing(self):
         self.infer_improved()
 
@@ -183,13 +177,7 @@ Understanding AC-3 and backreackng is difficult.
         return all(len(values) == 1 for values in self.board.values())
 
 
-<<<<<<< HEAD
-############################################################
-# Feedback
-############################################################
 
-
-=======
 
 feedback_question_2 = """
 Understanding AC-3 and backreackng is difficult.
@@ -198,4 +186,4 @@ Understanding AC-3 and backreackng is difficult.
 feedback_question_3 = """
 how the algothrisms based on each other
 """
->>>>>>> refs/remotes/origin/main
+
