@@ -1,9 +1,13 @@
 
 import collections
 import copy
+<<<<<<< HEAD
 import itertools
 import random
 import math
+=======
+
+>>>>>>> refs/remotes/origin/main
 
 
 def sudoku_cells():
@@ -39,7 +43,7 @@ def sudoku_arcs():
 
     return list(arcs)
 
-
+# 1111111
 def read_board(path):
     board = {}
     with open(path, 'r') as f:
@@ -52,7 +56,7 @@ def read_board(path):
                     board[(r, c)] = {int(char)}
     return board
 
-
+# 1111111
 class Sudoku(object):
 
     CELLS = sudoku_cells()
@@ -91,6 +95,10 @@ class Sudoku(object):
                             and (cell, cell1) in self.ARCS
                             ):
                         queue.append((cell, cell1))
+
+feedback_question_2 = """
+Understanding AC-3 and backreackng is difficult.
+"""
 
     def infer_improved(self):
         self.infer_ac3()
@@ -138,7 +146,7 @@ class Sudoku(object):
                 self.infer_ac3()
             else:
                 break
-
+# 1111111
     def infer_with_guessing(self):
         self.infer_improved()
 
@@ -167,7 +175,6 @@ class Sudoku(object):
             if self.infer_with_guessing():
                 return True
 
-            # Revert the board to the previous state if the guess was incorrect
             self.board = board_backup
 
         return False
@@ -176,8 +183,19 @@ class Sudoku(object):
         return all(len(values) == 1 for values in self.board.values())
 
 
+<<<<<<< HEAD
 ############################################################
 # Feedback
 ############################################################
 
 
+=======
+
+feedback_question_2 = """
+Understanding AC-3 and backreackng is difficult.
+"""
+
+feedback_question_3 = """
+how the algothrisms based on each other
+"""
+>>>>>>> refs/remotes/origin/main
