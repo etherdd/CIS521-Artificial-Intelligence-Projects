@@ -4,9 +4,7 @@ import copy
 import itertools
 import random
 import math
-############################################################
-# CIS 521: Homework 5
-############################################################
+
 
 student_name = "Yun Dai"
 
