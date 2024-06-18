@@ -27,11 +27,13 @@ def sudoku_arcs():
                     arcs.add((cell, (r, col)))
                     arcs.add(((r, col), cell))
 
+            # to check column constraints
             for row in range(9):
                 if row != r:
                     arcs.add((cell, (row, c)))
                     arcs.add(((row, c), cell))
 
+            # to check 3x3 subgrid constraints
             start_row, start_col = 3 * (r // 3), 3 * (c // 3)
             for i in range(3):
                 for j in range(3):
@@ -72,6 +74,7 @@ class Sudoku(object):
         values1 = self.board[cell1]
         values2 = self.board[cell2]
 
+        # To find values in cell1 that have no corresponding value in cell2
         inconsistent_values = {
             v1 for v1 in values1 if not any(v2 != v1 for v2 in values2)
             }
@@ -99,14 +102,17 @@ class Sudoku(object):
     def infer_improved(self):
         self.infer_ac3()
 
+        # Additional inference step
         while True:
             found_new_value = False
 
+            # Check cell
             for cell in self.CELLS:
                 if len(self.board[cell]) == 1:
                     continue
                 row, col = cell
 
+                # Check row
                 row_values = [
                     self.board[(row, c)] for c in range(9)
                     if (row, c) != cell
@@ -117,6 +123,7 @@ class Sudoku(object):
                     self.board[cell] = unique_row_values
                     found_new_value = True
 
+                # Check column
                 col_values = [
                     self.board[(r, col)] for r in range(9)
                     if (r, col) != cell
@@ -127,6 +134,7 @@ class Sudoku(object):
                     self.board[cell] = unique_col_values
                     found_new_value = True
 
+                # Check 3x3 block
                 start_row, start_col = 3 * (row // 3), 3 * (col // 3)
                 block_values = [
                     self.board[(r, c)] for r in range(start_row, start_row + 3)
@@ -139,16 +147,20 @@ class Sudoku(object):
                     found_new_value = True
 
             if found_new_value:
+                # Re-run AC-3 if we found any new value
                 self.infer_ac3()
             else:
+                # Exit if no new value was found in this iteration
                 break
 
     def infer_with_guessing(self):
         self.infer_improved()
 
+        # Backtracking search for a solution
         if self.is_solved():
             return True
 
+        # Find an unfilled cell with the smallest number of possibilities
         cell = min(
             (cell for cell in self.CELLS if len(self.board[cell]) > 1),
             key=lambda x: len(self.board[x]),
@@ -156,7 +168,7 @@ class Sudoku(object):
             )
 
         if cell is None:
-            return False 
+            return False  # No solution found
 
         original_values = self.board[cell].copy()
 
@@ -177,6 +189,7 @@ class Sudoku(object):
         return False
 
     def is_solved(self):
+        # Check if the board is solved
         return all(len(values) == 1 for values in self.board.values())
 
 
@@ -185,3 +198,13 @@ class Sudoku(object):
 ############################################################
 
 
+# Just an approximation is fine.
+feedback_question_1 = 8
+
+feedback_question_2 = """
+Understanding AC-3 and backreackng is difficult.
+"""
+
+feedback_question_3 = """
+how the algothrisms based on each other
+"""
