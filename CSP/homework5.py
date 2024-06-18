@@ -6,9 +6,6 @@ import random
 import math
 
 
-student_name = "Yun Dai"
-
-
 def sudoku_cells():
     return [(r, c) for r in range(9) for c in range(9)]
 
@@ -76,7 +73,6 @@ class Sudoku(object):
             v1 for v1 in values1 if not any(v2 != v1 for v2 in values2)
             }
 
-        # To remove inconsistent values from cell1
         if inconsistent_values:
             self.board[cell1] -= inconsistent_values
             removed = True
