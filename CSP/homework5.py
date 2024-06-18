@@ -5,7 +5,7 @@ import itertools
 import random
 import math
 
-
+# update the comments
 def sudoku_cells():
     return [(r, c) for r in range(9) for c in range(9)]
 
@@ -30,7 +30,6 @@ def sudoku_arcs():
                     arcs.add((cell, (row, c)))
                     arcs.add(((row, c), cell))
 
-            # to check 3x3 subgrid constraints
             start_row, start_col = 3 * (r // 3), 3 * (c // 3)
             for i in range(3):
                 for j in range(3):
@@ -41,7 +40,9 @@ def sudoku_arcs():
 
     return list(arcs)
 
-
+'''
+something not necessary
+'''
 def read_board(path):
     board = {}
     with open(path, 'r') as f:
@@ -140,7 +141,12 @@ class Sudoku(object):
                 # Re-run AC-3 if we found any new value
                 self.infer_ac3()
             else:
+ 
                 break
+
+feedback_question_2 = """
+Understanding AC-3 and backreackng is difficult.
+"""
 
     def infer_with_guessing(self):
         self.infer_improved()
@@ -178,6 +184,9 @@ class Sudoku(object):
         return all(len(values) == 1 for values in self.board.values())
 
 
+feedback_question_2 = """
+Understanding AC-3 and backreackng is difficult.
+"""
 
 feedback_question_2 = """
 Understanding AC-3 and backreackng is difficult.
