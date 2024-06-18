@@ -5,21 +5,7 @@ import itertools
 import random
 import math
 
-############################################################
-# CIS 521: Homework 4
-############################################################
 
-student_name = "Yun Dai"
-
-############################################################
-# Imports
-############################################################
-
-# Include your imports here, if any are used.
-
-############################################################
-# Section 1: Dominoes Game
-############################################################
 
 
 def create_dominoes_game(rows, cols):
@@ -121,7 +107,21 @@ class DominoesGame(object):
                 if self.is_legal_move(i, j, vertical):
                     return False
         return True
+############################################################
+# CIS 521: Homework 4
+############################################################
 
+student_name = "Yun Dai"
+
+############################################################
+# Imports
+############################################################
+
+# Include your imports here, if any are used.
+
+############################################################
+# Section 1: Dominoes Game
+############################################################
     def copy(self):
         """
         :return: A new DominoesGame object with a copied board.
@@ -155,7 +155,21 @@ class DominoesGame(object):
             len(list(self.legal_moves(vertical)))
             - len(list(self.legal_moves(not vertical)))
             )
+############################################################
+# CIS 521: Homework 4
+############################################################
 
+student_name = "Yun Dai"
+
+############################################################
+# Imports
+############################################################
+
+# Include your imports here, if any are used.
+
+############################################################
+# Section 1: Dominoes Game
+############################################################
     def get_best_move(self, vertical, limit):
         """
         Implementation of the alpha-beta search
@@ -207,14 +221,21 @@ class DominoesGame(object):
 # Section 2: Feedback
 ############################################################
 
+############################################################
+# CIS 521: Homework 4
+############################################################
 
-feedback_question_1 = 8
+student_name = "Yun Dai"
 
-feedback_question_2 = """
-Update v2 v and alpha beta.
-I cannot manage if do not have the textbook aside.
-"""
+############################################################
+# Imports
+############################################################
 
+# Include your imports here, if any are used.
+
+############################################################
+# Section 1: Dominoes Game
+############################################################
 feedback_question_3 = """
 The implementation of alpha beta algorithm
 """
